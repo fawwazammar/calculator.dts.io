@@ -51,7 +51,7 @@ const inputOperator = (operator) => {
 const equalSign = document.querySelector('.equal-sign');
 
 equalSign.addEventListener('click', () => {
-  console.log(currentNumber, calculationOperator, prevNumber);
+  console.log(prevNumber, calculationOperator, currentNumber);
   calculate()
   updateDisplay(currentNumber);
 })
@@ -94,12 +94,10 @@ const clearAll = () => {
 const decimal = document.querySelector('.decimal');
 
 decimal.addEventListener('click', (e) => {
-  // inputDecimal(e.target.value);
-  inputDecimal = (dot) => {
-    if (currentNumber.includes('.')) {
-      return;
-    }
-    currentNumber += dot;
-  }
+  inputDecimal(e.target.value);
   updateDisplay(currentNumber);
 })
+
+inputDecimal = (dot) => {
+  currentNumber += dot;
+}
